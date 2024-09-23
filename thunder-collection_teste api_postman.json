@@ -114,7 +114,7 @@
             "request": {
                 "method": "GET",
                 "url": {
-                    "raw": "localhost/exercicio/api.php/cursos",
+                    "raw": "localhost/exercicio-continua-o/api.php/cursos",
                     "path": [
                         "exercicio",
                         "api.php",
@@ -131,7 +131,7 @@
             "request": {
                 "method": "GET",
                 "url": {
-                    "raw": "localhost/exercicio/api.php/alunos/2",
+                    "raw": "localhost/exercicio-continua-o/api.php/alunos/2",
                     "path": [
                         "exercicio",
                         "api.php",
@@ -149,7 +149,7 @@
             "request": {
                 "method": "GET",
                 "url": {
-                    "raw": "localhost/exercicio/api.php/cursos/2",
+                    "raw": "localhost/exercicio-continua-o/api.php/cursos/2",
                     "path": [
                         "exercicio",
                         "api.php",
@@ -167,7 +167,7 @@
             "request": {
                 "method": "POST",
                 "url": {
-                    "raw": "localhost/exercicio/api.php/alunos",
+                    "raw": "localhost/exercicio-continua-o/api.php/alunos",
                     "query": [
                         {
                             "key": "nome_curso",
@@ -201,7 +201,7 @@
             "request": {
                 "method": "PUT",
                 "url": {
-                    "raw": "localhost/exercicio/api.php/cursos",
+                    "raw": "localhost/exercicio-continua-o/api.php/cursos",
                     "path": [
                         "exercicio",
                         "api.php",
@@ -227,7 +227,7 @@
             "request": {
                 "method": "DELETE",
                 "url": {
-                    "raw": "localhost/exercicio/api.php/cursos",
+                    "raw": "localhost/exercicio-continua-o/api.php/cursos",
                     "path": [
                         "exercicio",
                         "api.php",
