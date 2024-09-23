@@ -2,7 +2,7 @@
 <html lang="pt-br">
 
 <head>
-    <title>Lista Cursos</title>
+    <title>Remover Curso</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -47,25 +47,32 @@
                                             <div class="col-xl-12">
                                                 <div class="row">
                                                     <div class="col-xl-8 col-md-10 m-auto">
-                                                        <h2>Relação de Cursos</h2>
+                                                        <h2>Escolha um curso para ser removido</h2>
                                                         <table class="table">
                                                             <thead>
                                                                 <tr>
                                                                 <th scope="col">ID</th>
                                                                 <th scope="col">NOME DO CURSO</th>
+                                                                <th scope="col">OPERAÇÃO</th>
                                                                 </tr>
                                                             </thead>
                                                             <tbody>
                                                             <?php
-                                                                $url = 'http://localhost/exercicio-continua-o/api.php/cursos';
+                                                                $url = 'http://localhost/exercicio-continua-o/api.php/alunos';
                                                                 $response = file_get_contents($url);
                                                                 $data = json_decode($response, true);
 
                                                                 if (isset($data['dados'])) {                                                                    
-                                                                    foreach ($data['dados'] as $curso) {
+                                                                    foreach ($data['dados'] as $aluno) {
                                                                         echo "<tr>";
-                                                                        echo '<td>' . $curso['id_curso'] . '</td>';
-                                                                        echo '<td>' . $curso['nome_curso'] . '</td>';
+                                                                        echo '<td>' . $aluno['id'] . '</td>';
+                                                                        echo '<td>' . $aluno['nome'] . '</td>';
+                                                                        echo '<td>' . $aluno['email'] . '</td>';
+                                                                        echo '<td>' . $aluno['fk_cursos_id_curso'] . '</td>';
+
+                                                                        echo '<td> 
+                                                                                <a href="executa_remove_aluno.php?id='.$aluno['id'].'" class="btn btn-danger">REMOVER</a> 
+                                                                            </td>';
                                                                         echo "</tr>";            
                                                                     }
                                                                 } else {

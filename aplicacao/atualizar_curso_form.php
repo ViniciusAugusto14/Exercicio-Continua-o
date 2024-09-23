@@ -58,7 +58,7 @@
                                                             </thead>
                                                             <tbody>
                                                             <?php
-                                                                $url = 'http://localhost/exercicio/api.php/cursos';
+                                                                $url = 'http://localhost/exercicio-continua-o/api.php/cursos';
                                                                 $response = file_get_contents($url);
                                                                 $data = json_decode($response, true);
 

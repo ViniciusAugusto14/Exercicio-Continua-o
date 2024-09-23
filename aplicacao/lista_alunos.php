@@ -59,12 +59,26 @@
                                                                 </tr>
                                                             </thead>
                                                             <tbody>
-                                                                <tr>
-                                                                <th scope="row">1</th>
-                                                                <td>Mark</td>
-                                                                <td>Otto</td>
-                                                                <td>@mdo</td>
-                                                                </tr>    
+                                                            <?php
+                                                                $url = 'http://localhost/exercicio-continua-o/api.php/alunos';
+                                                                $response = file_get_contents($url);
+                                                                $data = json_decode($response, true);
+
+                                                                if (isset($data['dados'])) {
+                                                                    echo '<tr>';
+                                                                    foreach ($data['dados'] as $aluno) {
+                                                                        echo "<tr>";
+                                                                        echo '<td>' . $aluno['id'] . '</td>';
+                                                                        echo '<td>' . $aluno['nome'] . '</td>';
+                                                                        echo '<td>' . $aluno['email'] . '</td>';
+                                                                        echo '<td>' . $aluno['fk_cursos_id_curso'] . '</td>';
+                                                                        echo "</tr>";    
+                                                                    }
+                                                                    echo '</tr>';
+                                                                } else {
+                                                                    echo '<p>Nenhum aluno encontrado.</p>';
+                                                                }
+                                                                ?>
                                                             </tbody>
                                                         </table>
                                                     </div>

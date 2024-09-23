@@ -2,7 +2,7 @@
 <html lang="pt-br">
 
 <head>
-    <title>Lista Cursos</title>
+    <title>Atualiza Aluno</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -47,33 +47,31 @@
                                             <div class="col-xl-12">
                                                 <div class="row">
                                                     <div class="col-xl-8 col-md-10 m-auto">
-                                                        <h2>Relação de Cursos</h2>
-                                                        <table class="table">
-                                                            <thead>
-                                                                <tr>
-                                                                <th scope="col">ID</th>
-                                                                <th scope="col">NOME DO CURSO</th>
-                                                                </tr>
-                                                            </thead>
-                                                            <tbody>
-                                                            <?php
-                                                                $url = 'http://localhost/exercicio-continua-o/api.php/cursos';
-                                                                $response = file_get_contents($url);
-                                                                $data = json_decode($response, true);
+                                                        <h2>Insere novo Aluno</h2>
+                                                        <?php
+                                                            $id = $_GET['id']; // Converte o valor para inteiro
+                                                            //echo "ID ==> $id";
+                                                            
+                                                            $url = "http://localhost/exercicio-continua-o/api.php/alunos/{$id}";
+                                                            //echo $url;
 
-                                                                if (isset($data['dados'])) {                                                                    
-                                                                    foreach ($data['dados'] as $curso) {
-                                                                        echo "<tr>";
-                                                                        echo '<td>' . $curso['id_curso'] . '</td>';
-                                                                        echo '<td>' . $curso['nome_curso'] . '</td>';
-                                                                        echo "</tr>";            
-                                                                    }
-                                                                } else {
-                                                                    echo '<p>Nenhum curso encontrado.</p>';
-                                                                }
-                                                            ?>                                                                    
-                                                            </tbody>
-                                                        </table>
+                                                            $response = file_get_contents($url);
+                                                            $data = json_decode($response, true);
+
+                                                            //echo $data['dados']['nome'];                                                            
+                                                        
+                                                        ?>
+                                                        <form action="executa_atualiza_aluno.php?id=<?php echo $id;?>" method="POST">
+                                                            <div class="mb-3">
+                                                                <label class="form-label">Nome novo do aluno</label>
+                                                                <input type="text" name="nome_novo_aluno" value="<?php echo $data['dados_aluno']['nome']; ?>" class="form-control">                                                                
+                                                            </div>
+                                                            <div class="mb-3">
+                                                                <label class="form-label">Email novo do aluno</label>
+                                                                <input type="text" name="email_novo_aluno" value="<?php echo $data['dados_aluno']['email']; ?>" class="form-control">                                                                
+                                                            </div>                                                        
+                                                            <button type="submit" class="btn btn-primary">Atualizar</button>
+                                                        </form>
                                                     </div>
                                                 </div>
                                             </div>
