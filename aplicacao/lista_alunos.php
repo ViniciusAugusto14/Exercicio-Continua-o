@@ -47,7 +47,7 @@
                                             <!-- Project statustic start -->
                                             <div class="col-xl-12">
                                                 <div class="row">
-                                                    <div class="col-xl-8 col-md-10 m-auto">
+                                                    <div class="lalau col-xl-8 col-md-10 m-auto">
                                                         <h2>Relação de Alunos Matriculados</h2>
                                                         <table class="table">
                                                             <thead>
@@ -98,6 +98,19 @@
         </div>
     </div>
     
+    <style>
+        thead, tbody{
+            color: #fff;
+        }
+        .lalau{
+            background-color: rgb(15, 108, 230);
+            border-radius: 15px;
+        }
+        .lalau h2{
+            color: #fff;
+            padding: 10px;
+        }
+    </style>
 
     <!-- Required Jquery -->
     <script type="text/javascript" src="assets/js/jquery/jquery.min.js "></script>
