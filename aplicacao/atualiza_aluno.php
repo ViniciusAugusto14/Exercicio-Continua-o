@@ -70,7 +70,28 @@
                                                                 <label class="form-label">Email novo do aluno</label>
                                                                 <input type="text" name="email_novo_aluno" value="<?php echo $data['dados_aluno']['email']; ?>" class="form-control">                                                                
                                                             </div>                                                        
-                                                            <button type="submit" class="btn btn-primary">Atualizar</button>
+                                                            <div class="mb-3">
+                                                        <label for="cursos-dropdown" class="form-label">Nome do Curso</label>
+                                                        <?php
+                                                        $url = 'http://localhost/exercicio-continua-o/api.php/cursos';
+                                                        $response = file_get_contents($url);
+                                                        $cursos = json_decode($response, true);
+
+                                                        if (isset($cursos['dados'])) {
+                                                        echo '<select class="form-select" id="cursos-dropdown" name="curso_id" required>';
+                                                        echo '<option value="" disabled>Selecione um curso</option>';
+                                                        foreach ($cursos['dados'] as $curso) {
+                                                            $selected = ($curso['id_curso'] == $data['dados_aluno']['fk_cursos_id_curso']) ? 'selected' : '';
+                                                            echo '<option value="' . $curso['id_curso'] . '" ' . $selected . '>' . htmlspecialchars($curso['nome_curso']) . '</option>';
+                                                        }
+                                                        echo '</select>';
+                                                        } else {
+                                                            echo '<p>Nenhum curso encontrado.</p>';
+                                                        }
+                                                        ?>
+                                                        </div>
+
+                                                         <button type="submit" class="btn btn-primary">Atualizar</button>
                                                         </form>
                                                     </div>
                                                 </div>
